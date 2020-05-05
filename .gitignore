@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#manually put here
+src/assets/1240.jpg
+src/assets/favicon.ico.png
