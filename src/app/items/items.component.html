@@ -1,13 +1,20 @@
 <hr>
-<h2>Items</h2>
+<h2 align="left">Items</h2>
+
+  <input [(ngModel)]="searchText" placeholder="search items by name" type="text"
+         id="searchBox">
 <hr>
 
-<ul>
-  <li *ngFor="let item of items">
-    <div>{{item.name}}</div>
-    <img src="../../assets/Customer-Give-Me-The-Money.jpg" height=25% width=25% alt="an items picture"/>
-    <div price>{{item.price}}</div>
-    <div urgency>{{item.stockUrgency}}</div>
+
+<ul class="gridContainer">
+  <li *ngFor="let item of items | filter: searchText"
+  class="cell">
+    <h3>{{item.name | titlecase}}</h3>
+    <img src="../../assets/Customer-Give-Me-The-Money.jpg" height=150rem width=100% alt="an items picture"/>
+    <div class="gridInGrid">
+    <div><span>Price: €</span>{{item.price}}</div>
+    <div><span>Stock: </span>{{item.stockUrgency}}</div>
+    </div>
   </li>
 </ul>
 

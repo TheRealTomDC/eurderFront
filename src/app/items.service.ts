@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Item} from './item';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
-import {MessageService} from './message.service';
+
 
 
 @Injectable({
@@ -12,7 +12,7 @@ import {MessageService} from './message.service';
 export class ItemsService {
   private itemsURL = 'http://localhost:9000/items';
 
-  constructor(private http: HttpClient, private messageService: MessageService) {
+  constructor(private http: HttpClient) {
   }
 
   getItems(): Observable<Item[]> {
@@ -25,10 +25,10 @@ export class ItemsService {
   private handleError <T>(operation = 'operation', result?: T){
     return(error: any): Observable<T> => {
       if (error instanceof HttpErrorResponse){
-       // this.log(`The server seems to be sleeping, gently wake him with soft words and a strong coffee`);
-        console.error('works bitches');
+        console.error('The server seems to be sleeping, gently wake him with soft words and a strong coffee');
       }
-      console.error(error);
+      else {console.error(error);
+      }
       return of(result as T);
     };
 
