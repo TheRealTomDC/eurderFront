@@ -6,11 +6,11 @@
 
 
   <div>
-    <label for ="name">        <!-- the for name is just for the css, to identify-->
+    <label for ="name">       <!-- the for name is just to specify for wich input field it is //  optional?-->
       Name
     </label>
     <input id="name" type="text" formControlName="name">    <!--the formControlName is to link it to name in the .ts-->
-  </div>
+  </div>                                                     <!--   the id is for styling the input box in css-->
 
   <div>
     <label for ="description">
@@ -19,25 +19,26 @@
     <input id="description" type="text" formControlName="description">
   </div>
 
-  <div>
-    <label>
+  <div class="priceAndAmountDiv">
+    <label class="priceAndAmountLabel">
       Price
     </label>
+    <span class="euroSpan">€</span>
     <input id="price" type="text" formControlName="price">
   </div>
 
-  <div>
-    <label >
+  <div class="priceAndAmountDiv">
+    <label class="priceAndAmountLabel">
       Amount of stock
     </label>
     <input id="amountOfStock" type="text" formControlName="amountOfStock">
   </div>
 
 
-  <div class="inBetween"></div>
-
+<div class="buttonDiv">
   <button class="button1" (click)="onCreate(createForm.value)">Create</button>
   <button class="button2" (click)="onCancel(createForm.value)">Cancel</button>
+</div>
 
 </form>
 

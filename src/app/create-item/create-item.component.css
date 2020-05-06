@@ -1,47 +1,72 @@
 .headerBox {
-
   height: 40px;
   border-bottom: 1px solid #2b2b2b;
   margin-bottom: 1em;
-  align-items: center;
 }
 
 #name, #description {
   width: 100%;
-  padding: 0.5%;
+  padding: 1%;
   margin: 1% 1% 1% 0;
 }
+#description{
+  height: 130px;
 
-#price{
-  width: 30%;
-  float: left;
-  margin: 1%;
 }
+
+.priceAndAmountDiv{
+  width: 20%;
+  float: left;
+  margin-bottom: 1%;
+}
+
+.priceAndAmountLabel{
+  width: 100%;
+}
+
+#price,#amountOfStock{
+  width: 50%;
+  float: left;
+  padding: 2%;
+  margin: 1% 1% 1% 0;
+}
+.euroSpan{
+  width: 8%;
+  float: left;
+  padding: 2%;
+  background-color: #6c7378;
+  margin-top: 1%;
+}
+
 
 label{
   float: left;
   width: 100px;
+  font-weight: bold;
 }
 
-.inBetween{
-  padding: 1px;
+
+
+.buttonDiv{
+  width: 100%;
+  clear: both;
+  margin-top: 1%;
 }
 
 .button1{
-  width: 69%;
+  width: 70%;
   height: 60px;
   border-radius: 6px;
-  margin: 1% 0% 1% 0%;
   background-color: #00de00;
-
 
 }
 
 .button2{
-  width: 29%;
+  width: 29.5%;
   height: 60px;
   border-radius: 6px;
-  margin: 1% 0% 1% 1%;
   float: right;
 
 }
+
+
