@@ -1,9 +1,47 @@
-.headerBox{
+.headerBox {
 
   height: 40px;
-  border-bottom: 1px solid #2b2b2b ;
+  border-bottom: 1px solid #2b2b2b;
   margin-bottom: 1em;
   align-items: center;
 }
 
+#name, #description {
+  width: 100%;
+  padding: 0.5%;
+  margin: 1% 1% 1% 0;
+}
 
+#price{
+  width: 30%;
+  float: left;
+  margin: 1%;
+}
+
+label{
+  float: left;
+  width: 100px;
+}
+
+.inBetween{
+  padding: 1px;
+}
+
+.button1{
+  width: 69%;
+  height: 60px;
+  border-radius: 6px;
+  margin: 1% 0% 1% 0%;
+  background-color: #00de00;
+
+
+}
+
+.button2{
+  width: 29%;
+  height: 60px;
+  border-radius: 6px;
+  margin: 1% 0% 1% 1%;
+  float: right;
+
+}
