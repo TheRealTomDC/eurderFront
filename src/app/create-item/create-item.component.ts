@@ -32,10 +32,11 @@ export class CreateItemComponent implements OnInit {
 
   onCreate(itemData): void {
     const itemJson = JSON.stringify(itemData);
-    this.itemsService.createNewItem(itemJson).subscribe();
+    this.itemsService.createNewItem(itemJson)
+      .subscribe();
     this.createForm.reset();
 
-    console.warn('Done', itemData);  /* optional*/
+
   }
 
   onCancel(itemData): void {

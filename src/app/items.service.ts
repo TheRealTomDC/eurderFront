@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Item} from './item';
 import {Observable, of, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,7 +11,8 @@ import {catchError} from 'rxjs/operators';
 export class ItemsService {
   private itemsURL = 'http://localhost:9000/items';
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
 
 
   constructor(private http: HttpClient) {
@@ -38,7 +39,9 @@ export class ItemsService {
 
 
   createNewItem(itemJson: string): Observable<string> {
-    return this.http.post<string>(this.itemsURL, itemJson, this.httpOptions);
+    return this.http.post<string>(this.itemsURL, itemJson, this.httpOptions)
+      .pipe(tap(_ => console.warn('New Item created', itemJson))           /* optional*/
+      );
 
 
   }
