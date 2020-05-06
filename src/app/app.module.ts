@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
 import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { ItemsHeaderComponent } from './items-header/items-header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +24,8 @@ import { CreateItemComponent } from './create-item/create-item.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

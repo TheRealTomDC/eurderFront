@@ -5,12 +5,14 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ItemsService {
   private itemsURL = 'http://localhost:9000/items';
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})};
+
 
   constructor(private http: HttpClient) {
   }
@@ -22,17 +24,23 @@ export class ItemsService {
       );
   }
 
-  private handleError <T>(operation = 'operation', result?: T){
-    return(error: any): Observable<T> => {
-      if (error instanceof HttpErrorResponse){
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      if (error instanceof HttpErrorResponse) {
         console.error('The server seems to be sleeping, gently wake him with soft words and a strong coffee');
-      }
-      else {console.error(error);
+      } else {
+        console.error(error);
       }
       return of(result as T);
     };
 
   }
 
+
+  createNewItem(itemJson: string): Observable<string> {
+    return this.http.post<string>(this.itemsURL, itemJson, this.httpOptions);
+
+
+  }
 }
 

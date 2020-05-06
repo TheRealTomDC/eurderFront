@@ -2,6 +2,39 @@
   <h2 class="header">Create Item</h2>
 </div>
 
-<label>Name
-<input #itemName></label>
+<form [formGroup]="createForm">
+
+
+  <div>
+    <label for ="name">        <!-- the for name is just for the css, to identify-->
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">    <!--the formControlName is to link it to name in the .ts-->
+  </div>
+
+  <div>
+    <label for ="description">
+      Description
+    </label>
+    <input id="description" type="text" formControlName="description">
+  </div>
+
+  <div>
+    <label>
+      Price
+    </label>
+    <input id="price" type="text" formControlName="price">
+  </div>
+
+  <div>
+    <label >
+      Amount of stock
+    </label>
+    <input id="amountOfStock" type="text" formControlName="amountOfStock">
+  </div>
+
+  <button (click)="onCreate(createForm.value)">Create</button>
+  <button (click)="onCancel(createForm.value)">Cancel</button>
+
+</form>
 
