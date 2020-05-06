@@ -20,4 +20,8 @@ body, input[type="text"], button {
 /* everywhere else */
 * {
   font-family: Arial, Helvetica, sans-serif;
+/*  added myself*/
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }

@@ -13,7 +13,7 @@ export class FilterPipe implements PipeTransform {
     if (!searchText) {
       return items;
     }
-    searchText = searchText.toLowerCase();
+
     return items.filter(item => item.name.search(new RegExp(searchText, 'i')) > -1);
   }
 
