@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {ItemsService} from '../items.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,13 @@ import {ItemsService} from '../items.service';
 })
 export class CreateItemComponent implements OnInit {
   createForm;
-  itemJson;
+
 
 
   constructor(
     private itemsService: ItemsService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.createForm = this.formBuilder.group({
       name:  ['', Validators.required, ],
@@ -40,6 +42,7 @@ export class CreateItemComponent implements OnInit {
     this.itemsService.createNewItem(itemJson)
       .subscribe();
     this.createForm.reset();
+ //   this.router.navigate(['itemDetail']);
 
 
   }

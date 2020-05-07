@@ -3,6 +3,8 @@ import {Item} from './item';
 import {Observable, of, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
+import {Router} from '@angular/router';
+
 
 
 @Injectable({
@@ -15,7 +17,7 @@ export class ItemsService {
   };
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   getItems(): Observable<Item[]> {
@@ -39,11 +41,16 @@ export class ItemsService {
 
 
   createNewItem(itemJson: string): Observable<string> {
+    this.router.navigate(['itemDetail']);
     return this.http.post<string>(this.itemsURL, itemJson, this.httpOptions)
-      .pipe(tap(_ => console.warn('New Item created', itemJson))           /* optional*/
-      );
+      .pipe(
+        tap(_ => console.warn('New Item created', itemJson))
+        );
+  }
 
 
+  private goToDetail() {
+   return  this.router.navigate(['itemDetails']);
   }
 }
 

@@ -10,6 +10,7 @@ import { FilterPipe } from './filter.pipe';
 import { ItemsHeaderComponent } from './items-header/items-header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CreateItemComponent } from './create-item/create-item.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreateItemComponent } from './create-item/create-item.component';
     HeaderComponent,
     FilterPipe,
     ItemsHeaderComponent,
-    CreateItemComponent
+    CreateItemComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
