@@ -11,7 +11,8 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class ItemsService {
-  private itemsURL = 'http://localhost:9000/items';
+ // private itemsURL = 'http://localhost:9000/items';
+  private itemsURL = 'https://order-back.herokuapp.com/items';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
