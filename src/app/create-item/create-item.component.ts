@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {ItemsService} from '../items.service';
 
 
@@ -18,12 +18,17 @@ export class CreateItemComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.createForm = this.formBuilder.group({
-      name: '',
-      description: '',
-      price: '',
-      amountOfStock: ''
+      name:  ['', Validators.required, ],
+      description: ['', [Validators.required, Validators.maxLength(255)]],
+      price: ['', [Validators.required, Validators.min(0)]],
+      amountOfStock: ['', [Validators.required, Validators.min(0)]]
     });
   }
+
+  get name(){return this.createForm.get('name'); }
+  get description(){return this.createForm.get('description'); }
+  get price(){return this.createForm.get('price'); }
+  get amount(){return this.createForm.get('amountOfStock'); }
 
 
   ngOnInit(): void {

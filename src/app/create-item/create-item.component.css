@@ -58,8 +58,11 @@ label{
   height: 60px;
   border-radius: 6px;
   background-color: #00de00;
-
 }
+.button1[disabled]{
+  background-color: #a60a1e;
+}
+
 
 .button2{
   width: 29.5%;
@@ -68,5 +71,13 @@ label{
   float: right;
 
 }
+.ng-invalid:not(form){
+  color: #df0b0b;
+}
+
+.alert{
+  color: #df0b0b;
+}
+
 
 

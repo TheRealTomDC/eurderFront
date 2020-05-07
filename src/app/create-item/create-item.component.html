@@ -6,39 +6,77 @@
 
 
   <div>
-    <label for ="name">       <!-- the for name is just to specify for wich input field it is //  optional?-->
+    <label for="name">       <!-- the for name is just to specify for wich input field it is //  optional?-->
       Name
     </label>
-    <input id="name" type="text" formControlName="name">    <!--the formControlName is to link it to name in the .ts-->
-  </div>                                                     <!--   the id is for styling the input box in css-->
+    <input id="name" type="text" formControlName="name">    <!--the formControlName is to link it to name in the .ts-->   <!--   the id is for styling the input box in css-->
+    <div class="alert" *ngIf="name.invalid && name.touched">
+      <div *ngIf="name.errors.required">
+        Name is required
+      </div>
+    </div>
+  </div>
 
   <div>
-    <label for ="description">
+    <label for="description">
       Description
     </label>
     <input id="description" type="text" formControlName="description">
+
+    <div class="alert" *ngIf="description.invalid && description.touched">
+      <div *ngIf="description.errors.required">
+        Description is required
+      </div>
+      <div *ngIf="description.errors.maxLength">
+        Description can't be longer then 255 characters.
+      </div>
+    </div>
+
   </div>
 
   <div class="priceAndAmountDiv">
-    <label class="priceAndAmountLabel">
+    <label for="price" class="priceAndAmountLabel">
       Price
     </label>
     <span class="euroSpan">€</span>
     <input id="price" type="text" formControlName="price">
+
+    <div class="alert" *ngIf="price.invalid && price.touched">
+      <div *ngIf="price.errors.required">
+        Price is required
+      </div>
+      <div *ngIf="price.errors.min">
+        Were not paying people to get our stuff!
+      </div>
+
+    </div>
+
+
   </div>
+
 
   <div class="priceAndAmountDiv">
     <label class="priceAndAmountLabel">
       Amount of stock
     </label>
     <input id="amountOfStock" type="text" formControlName="amountOfStock">
+
+    <div class="alert" *ngIf="amount.invalid && amount.touched">
+      <div *ngIf="amount.errors.required">
+        Amount of stock is required
+      </div>
+      <div *ngIf="amount.errors.min">
+        Stock items can't have a negative amount.
+      </div>
+
+    </div>
   </div>
 
+  <div class="buttonDiv">
+    <button class="button1" (click)="onCreate(createForm.value)" [disabled]="!createForm.valid">Create</button>
+    <button class="button2" (click)="onCancel(createForm.value)">Cancel</button>
+  </div>
 
-<div class="buttonDiv">
-  <button class="button1" (click)="onCreate(createForm.value)">Create</button>
-  <button class="button2" (click)="onCancel(createForm.value)">Cancel</button>
-</div>
 
 </form>
 
